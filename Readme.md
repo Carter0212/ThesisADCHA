@@ -1,8 +1,5 @@
-Follow this hackmd note
-https://hackmd.io/3DQQig-YR9SWxFSACmJ4eg?both#%E5%9F%B7%E8%A1%8C%E7%A8%8B%E5%BC%8F
-
-
 # ADCHA Readme
+[TOC]
 
 
 ## A. Environmental Setting
@@ -105,34 +102,31 @@ python3 Execution.py
 
 建議執行此實驗須使用效能優秀的電腦『32緒以上』，因為腳本設計會同時執行25個程式。
 
+```
+bash FWA.sh
+```
+
+執行腳本後會跳出五個terminal，檢查是否執行好可以檢查`5BS_10FWAGoalThr6.0Mbps`、`5BS_20FWAGoalThr6.0Mbps`、`5BS_30FWAGoalThr6.0Mbps`、`5BS_40FWAGoalThr6.0Mbps`、`5BS_50FWAGoalThr6.0Mbps`中的ADCHA裡面的資料夾是否執行至500。
+
+若全部執行至500後，接下來開始畫圖，之後至`plot_Combin4fig.py`的第22行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾，再來至`plot_times.py`的第31行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾。
+
+```
+python3 plot_Combin4fig.py
+python3 plot_times.py
+```
+
+執行好後就可以至output內根據對應參數找到對應的圖。對照論文中的圖6.1至圖6.7。
+
+
+最後至diff_FWA_ADCHA.py的29行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾。執行好後就可以。對照論文中的圖6.12。
+
+
+```
+python3 diff_FWA_ADCHA.py
+```
 
 ### 5. Rate
-
-
-
-## 執行程式
-
-```bash=
-python3 Choice_Algs.py -type [使用演算法] -BS [SBS數量] -FWA [FWA數量] -Thr [吞吐量的值] -unit [吞吐量的單位] -iter [總迭代次數] -start [開始執行的次數] -end [結束執行的次數]
-```
-
-### 程式測試
-此目的是測試環境是否有安裝好以及結果是否有相同
-
-### Execution Time
-在`./ExcutionTimes`資料夾中執行以下程式碼
-``` command
-bash Times.sh
-```
-執行完後會在執行的當日日期中出現
-"放上圖片(當天日期資料夾)"
-### 不同的參數的執行
-:::warning
-**建議**
-在不同電腦上執行會比較快
-我在執行的時候分成兩台電腦分別執行不同FWA數量和不同最小傳輸速率需求
-:::
-
+此模擬中會執行以下場景並包含五種演算法共計25個程式同時執行。
 
 :::success
 **不同最小傳輸速率需求**
@@ -143,19 +137,43 @@ bash Times.sh
 * 5SBS 20FWA 3Gbps
 :::
 
-你需要分別在`5BS_10FWA_GOalThr1Gbps`、`5BS_20FWA_GOalThr1Gbps`、`5BS_30FWA_GOalThr1Gbps`、`5BS_40FWA_GOalThr1Gbps`、`5BS_50FWA_GOalThr1Gbps`、`5BS_20FWA_GOalThr600Mbps`、`5BS_20FWA_GOalThr1Gbps`、`5BS_20FWA_GOalThr2Gbps`、`5BS_20FWA_GOalThr2.5Gbps`、`5BS_20FWA_GOalThr3Gbps`、以上資料夾中分別執行以下程式碼
+建議執行此實驗須使用效能優秀的電腦『32緒以上』，因為腳本設計會同時執行25個程式。
 
-``` command
-bash Start.sh
+
+```
+bash rate.sh
 ```
 
-以上程式碼會在每種不同的參數場景中使用tmux同時執行個種不同的演算法(ADCHA、HHO、HHO_SMA、NSGAII)，以上總共會執行50個程式。
+執行腳本後會跳出五個terminal，檢查是否執行好可以檢查`5BS_30FWAGoalThr4.0Mbps`、`5BS_30FWAGoalThr6.0Mbps`、`5BS_30FWAGoalThr8.0Mbps`、`5BS_30FWAGoalThr10.0Mbps`、`5BS_30FWAGoalThr12.0Mbps`中的ADCHA裡面的資料夾是否執行至500。
 
 
-#### 執行完成後
-你會看到多出一個當天日期的資料夾
-"放上圖片(當天日期資料夾)"
-之後就可以開始畫圖了，如果當初是在不同電腦上執行的建議把執行結果轉移到同一台電腦上(轉移電腦建議：建議先將資料夾壓縮後再統一傳送會比較快)，當轉移好後就可以開始畫圖了。
+若全部執行至500後，接下來開始畫圖，之後至`plot_Combin4fig.py`的第22行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾，再來至`plot_times.py`的第31行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾。
+
+```
+python3 plot_Combin4fig.py
+python3 plot_times.py
+```
+
+執行好後就可以至output內根據對應參數找到對應的圖。對照論文中的圖6.8至圖6.12。
+
+最後至diff_rate_ADCHA.py的29行current_date參數中修改成與資料夾相同的日期再執行，不然會找不到資料夾。執行好後就可以。對照論文中的圖6.13。
+
+```
+python3 diff_rate_ADCHA.py
+```
+
+
+
+
+## 單獨執行程式方法
+
+以上都是根據碩論結果呈現所寫的腳本，若要針對某些方法或者修改參數，可以針對以下指令修改。
+
+
+```bash=
+python3 Choice_Algs.py -type [使用演算法] -BS [SBS數量] -FWA [FWA數量] -Thr [吞吐量的值] -unit [吞吐量的單位] -iter [總迭代次數] -start [開始執行的次數] -end [結束執行的次數]
+```
+
 
 
 
