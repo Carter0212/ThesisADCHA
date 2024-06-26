@@ -3,12 +3,12 @@ python_scripts=("ADCHA" "HHO" "HHO_SMA" "NSGA" "Random")
 # Scene=BS5_FWA50_1Gbps
 BS=5
 fwa=30
-#Thr=(4 6 8 10 12)
-Thr=(4)
+Thr=(4 6 8 10 12)
+#Thr=(4)
 unit="Mbps"
 iteration=5000
 startTime=0
-endTime=1
+endTime=500
 
 # 遍历 FWA 数组
 # 遍历 Thr 数组
