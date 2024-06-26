@@ -1,0 +1,7 @@
+numpy
+argparse
+matplotlib
+func_timeout
+pandas
+numba
+scienceplots
